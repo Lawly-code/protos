@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+protos/__init__.py
+protos.egg-info/PKG-INFO
+protos.egg-info/SOURCES.txt
+protos.egg-info/dependency_links.txt
+protos.egg-info/requires.txt
+protos.egg-info/top_level.txt
+protos/user_service/__init__.py
+protos/user_service/client.py
+protos/user_service/dto.py
+protos/user_service/user_service_pb2.py
+protos/user_service/user_service_pb2.pyi
+protos/user_service/user_service_pb2_grpc.py

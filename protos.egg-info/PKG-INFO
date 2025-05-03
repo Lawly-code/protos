@@ -1,0 +1,24 @@
+Metadata-Version: 2.4
+Name: protos
+Version: 0.1.0
+Summary: grpc contracts for lawly
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: betterproto==1.2.5
+Requires-Dist: grpcio==1.64.0
+Requires-Dist: grpcio-tools==1.64.0
+Requires-Dist: mypy-protobuf==3.6.0
+Requires-Dist: protobuf==5.27.0
+Requires-Dist: pydantic==2.9.2
+
+# Контракты GRPC
+
+---
+
+### Пример для генерации
+
+```bash
+python -m grpc_tools.protoc -I. --python_out=. --mypy_out=. --grpc_python_out=. protos/user_service/user_service.proto
+```
+
+---

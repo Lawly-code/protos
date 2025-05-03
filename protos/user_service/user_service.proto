@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package user;
+
+service UserService {
+  rpc GetUserInfo (GetUserInfoRequest) returns (UserInfoResponse) {}
+}
+
+message GetUserInfoRequest {
+  int32 user_id = 1;
+}
+
+message Tariff {
+  int32 id = 1;
+  string name = 2;
+  string description = 3;
+  int32 price = 4;
+  repeated string features = 5;
+}
+
+message UserInfoResponse {
+  int32 user_id = 1;
+  Tariff tariff = 2;
+  string start_date = 3;
+  string end_date = 4;
+  int32 count_lawyers = 5;
+  int32 consultations_total = 6;
+  int32 consultations_used = 7;
+  bool can_user_ai = 8;
+  bool can_create_custom_templates = 9;
+  bool unlimited_documents = 10;
+} 
