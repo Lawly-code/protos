@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package assistant;
+
+// Service definition for the AI Assistant
+service AIAssistant {
+  // Improves text using AI
+  rpc ImproveText (ImproveTextRequest) returns (TextResponse);
+
+  // Performs chat with AI
+  rpc AIChat (AIChatRequest) returns (TextResponse);
+
+  // Generates a custom document template
+  rpc CustomTemplate (CustomTemplateRequest) returns (TextResponse);
+}
+
+// Request message for the ImproveText method
+message ImproveTextRequest {
+  // The original text to improve
+  string user_prompt = 1;
+
+  // Optional parameters
+  optional float temperature = 2;
+  optional int32 max_tokens = 3;
+}
+
+// Request message for the AIChat method
+message AIChatRequest {
+  // The question or message for the AI
+  string user_prompt = 1;
+
+  // Optional parameters
+  optional float temperature = 2;
+  optional int32 max_tokens = 3;
+}
+
+// Request message for the CustomTemplate method
+message CustomTemplateRequest {
+  // Input data for template generation
+  string user_prompt = 1;
+
+  // Optional parameters
+  optional float temperature = 2;
+  optional int32 max_tokens = 3;
+}
+
+// Response message containing the AI's reply
+message TextResponse {
+  // The AI's response text
+  string assistant_reply = 1;
+
+  // Additional metadata about the response (optional)
+  optional ResponseMetadata metadata = 2;
+}
+
+// Metadata about the response
+message ResponseMetadata {
+  // Timestamp when the response was generated
+  int64 timestamp = 1;
+
+  // Model used for generation
+  string model = 2;
+
+  // Tokens used in the request
+  int32 tokens_used = 3;
+}

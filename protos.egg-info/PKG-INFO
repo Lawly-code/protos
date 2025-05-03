@@ -5,8 +5,8 @@ Summary: grpc contracts for lawly
 Requires-Python: >=3.11
 Description-Content-Type: text/markdown
 Requires-Dist: betterproto==1.2.5
-Requires-Dist: grpcio==1.64.0
-Requires-Dist: grpcio-tools==1.64.0
+Requires-Dist: grpcio==1.71.0
+Requires-Dist: grpcio-tools==1.71.0
 Requires-Dist: mypy-protobuf==3.6.0
 Requires-Dist: protobuf==5.27.0
 Requires-Dist: pydantic==2.9.2
