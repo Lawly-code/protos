@@ -3,6 +3,7 @@ import logging
 from typing import Optional
 
 from google.protobuf.struct_pb2 import Struct
+from google.protobuf.json_format import ParseDict  # ✅ Это нужно для корректного преобразования
 
 from protos.notification_service import notification_service_pb2 as notification_pb2
 from protos.notification_service import notification_service_pb2_grpc as notification_pb2_grpc
@@ -21,12 +22,20 @@ class NotificationServiceClient:
         self.channel: Optional[grpc.aio.Channel] = None
         self.stub: Optional[notification_pb2_grpc.NotificationServiceStub] = None
 
+    async def __aenter__(self):
+        await self.connect()
+        return self
+
+    async def __aexit__(self, exc_type, exc_val, exc_tb):
+        await self.close()
+
     async def connect(self):
         """
         Устанавливает соединение с gRPC-сервером.
         """
-        self.channel = grpc.aio.insecure_channel(self.target)
-        self.stub = notification_pb2_grpc.NotificationServiceStub(self.channel)
+        if not self.channel:
+            self.channel = grpc.aio.insecure_channel(self.target)
+            self.stub = notification_pb2_grpc.NotificationServiceStub(self.channel)
 
     async def send_push_from_users(self, request_data: PushRequestDTO) -> bool:
         """
@@ -42,8 +51,9 @@ class NotificationServiceClient:
             await self.connect()
 
         try:
-            message_struct = Struct()
-            message_struct.update(request_data.message)
+            logger.warning("📤 NotificationServiceClient.send_push_from_users CALLED")  # ⬅️ Debug log
+
+            message_struct = ParseDict(request_data.message, Struct())  # ✅ безопасное преобразование
 
             request = notification_pb2.SendPushFromUsersRequest(
                 message=message_struct,
@@ -70,3 +80,5 @@ class NotificationServiceClient:
         """
         if self.channel:
             await self.channel.close()
+            self.channel = None
+            self.stub = None
