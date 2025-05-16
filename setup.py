@@ -4,7 +4,7 @@ from os.path import join, dirname
 setup(
     name="protos",
     version="0.1.5",
-    packages=find_packages(),
+    packages=find_packages(include=["protos", "protos.*"]),
     install_requires=[
         "protobuf==5.29.0",
         "betterproto==1.2.5",
