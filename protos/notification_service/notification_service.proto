@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package notification;
+package protos.notification_service;;
 
 import "google/protobuf/struct.proto";
 import "google/protobuf/empty.proto";
