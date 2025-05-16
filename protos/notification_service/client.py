@@ -3,7 +3,7 @@ import logging
 from typing import Optional
 
 from google.protobuf.struct_pb2 import Struct
-from google.protobuf.json_format import ParseDict  # ✅ Это нужно для корректного преобразования
+from google.protobuf.json_format import ParseDict
 
 from protos.notification_service import notification_service_pb2 as notification_pb2
 from protos.notification_service import notification_service_pb2_grpc as notification_pb2_grpc
@@ -51,9 +51,8 @@ class NotificationServiceClient:
             await self.connect()
 
         try:
-            logger.warning("📤 NotificationServiceClient.send_push_from_users CALLED")  # ⬅️ Debug log
 
-            message_struct = ParseDict(request_data.message, Struct())  # ✅ безопасное преобразование
+            message_struct = ParseDict(request_data.message, Struct())
 
             request = notification_pb2.SendPushFromUsersRequest(
                 message=message_struct,

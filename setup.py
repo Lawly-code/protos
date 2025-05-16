@@ -3,7 +3,7 @@ from os.path import join, dirname
 
 setup(
     name="protos",
-    version="0.1.9",
+    version="0.1.10",
     packages=find_packages(include=["protos", "protos.*"]),
     install_requires=[
         "protobuf==5.29.0",
