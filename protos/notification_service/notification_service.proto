@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package notification;
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/empty.proto";
+
+service NotificationService {
+  rpc SendPushFromUsers(SendPushFromUsersRequest) returns (google.protobuf.Empty);
+}
+
+message SendPushFromUsersRequest {
+  google.protobuf.Struct message = 1;
+  repeated int64 user_ids = 2;
+  optional bool is_base = 3;
+}
