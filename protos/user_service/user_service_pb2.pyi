@@ -86,7 +86,7 @@ class UserInfoResponse(google.protobuf.message.Message):
         user_id: builtins.int = ...,
         tariff: global___Tariff | None = ...,
         start_date: builtins.str = ...,
-        end_date: builtins.str = ...,
+        end_date: builtins.str | None = ...,
         count_lawyers: builtins.int = ...,
         consultations_total: builtins.int = ...,
         consultations_used: builtins.int = ...,
@@ -94,7 +94,8 @@ class UserInfoResponse(google.protobuf.message.Message):
         can_create_custom_templates: builtins.bool = ...,
         unlimited_documents: builtins.bool = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["tariff", b"tariff"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["can_create_custom_templates", b"can_create_custom_templates", "can_user_ai", b"can_user_ai", "consultations_total", b"consultations_total", "consultations_used", b"consultations_used", "count_lawyers", b"count_lawyers", "end_date", b"end_date", "start_date", b"start_date", "tariff", b"tariff", "unlimited_documents", b"unlimited_documents", "user_id", b"user_id"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["_end_date", b"_end_date", "end_date", b"end_date", "tariff", b"tariff"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_end_date", b"_end_date", "can_create_custom_templates", b"can_create_custom_templates", "can_user_ai", b"can_user_ai", "consultations_total", b"consultations_total", "consultations_used", b"consultations_used", "count_lawyers", b"count_lawyers", "end_date", b"end_date", "start_date", b"start_date", "tariff", b"tariff", "unlimited_documents", b"unlimited_documents", "user_id", b"user_id"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing.Literal["_end_date", b"_end_date"]) -> typing.Literal["end_date"] | None: ...
 
 global___UserInfoResponse = UserInfoResponse

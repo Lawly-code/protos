@@ -13,7 +13,7 @@ class GetUserInfoDTO(BaseModel):
     user_id: int
     tariff: TariffDTO
     start_date: str
-    end_date: str
+    end_date: str | None = None
     count_lawyers: int
     consultations_total: int
     consultations_used: int

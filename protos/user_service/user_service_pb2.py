@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&protos/user_service/user_service.proto\x12\x04user\"%\n\x12GetUserInfoRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\x05\"X\n\x06Tariff\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\r\n\x05price\x18\x04 \x01(\x05\x12\x10\n\x08\x66\x65\x61tures\x18\x05 \x03(\t\"\x8e\x02\n\x10UserInfoResponse\x12\x0f\n\x07user_id\x18\x01 \x01(\x05\x12\x1c\n\x06tariff\x18\x02 \x01(\x0b\x32\x0c.user.Tariff\x12\x12\n\nstart_date\x18\x03 \x01(\t\x12\x10\n\x08\x65nd_date\x18\x04 \x01(\t\x12\x15\n\rcount_lawyers\x18\x05 \x01(\x05\x12\x1b\n\x13\x63onsultations_total\x18\x06 \x01(\x05\x12\x1a\n\x12\x63onsultations_used\x18\x07 \x01(\x05\x12\x13\n\x0b\x63\x61n_user_ai\x18\x08 \x01(\x08\x12#\n\x1b\x63\x61n_create_custom_templates\x18\t \x01(\x08\x12\x1b\n\x13unlimited_documents\x18\n \x01(\x08\x32P\n\x0bUserService\x12\x41\n\x0bGetUserInfo\x12\x18.user.GetUserInfoRequest\x1a\x16.user.UserInfoResponse\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&protos/user_service/user_service.proto\x12\x04user\"%\n\x12GetUserInfoRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\x05\"X\n\x06Tariff\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\r\n\x05price\x18\x04 \x01(\x05\x12\x10\n\x08\x66\x65\x61tures\x18\x05 \x03(\t\"\xa0\x02\n\x10UserInfoResponse\x12\x0f\n\x07user_id\x18\x01 \x01(\x05\x12\x1c\n\x06tariff\x18\x02 \x01(\x0b\x32\x0c.user.Tariff\x12\x12\n\nstart_date\x18\x03 \x01(\t\x12\x15\n\x08\x65nd_date\x18\x04 \x01(\tH\x00\x88\x01\x01\x12\x15\n\rcount_lawyers\x18\x05 \x01(\x05\x12\x1b\n\x13\x63onsultations_total\x18\x06 \x01(\x05\x12\x1a\n\x12\x63onsultations_used\x18\x07 \x01(\x05\x12\x13\n\x0b\x63\x61n_user_ai\x18\x08 \x01(\x08\x12#\n\x1b\x63\x61n_create_custom_templates\x18\t \x01(\x08\x12\x1b\n\x13unlimited_documents\x18\n \x01(\x08\x42\x0b\n\t_end_date2P\n\x0bUserService\x12\x41\n\x0bGetUserInfo\x12\x18.user.GetUserInfoRequest\x1a\x16.user.UserInfoResponse\"\x00\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -36,7 +36,7 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_TARIFF']._serialized_start=87
   _globals['_TARIFF']._serialized_end=175
   _globals['_USERINFORESPONSE']._serialized_start=178
-  _globals['_USERINFORESPONSE']._serialized_end=448
-  _globals['_USERSERVICE']._serialized_start=450
-  _globals['_USERSERVICE']._serialized_end=530
+  _globals['_USERINFORESPONSE']._serialized_end=466
+  _globals['_USERSERVICE']._serialized_start=468
+  _globals['_USERSERVICE']._serialized_end=548
 # @@protoc_insertion_point(module_scope)
