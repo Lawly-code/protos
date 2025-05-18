@@ -74,6 +74,30 @@ class UserServiceClient:
             logger.error(f"Ошибка при обращении к GRPC серверу: {str(e)}")
             return None
 
+    async def write_off_consultation(self, user_id: int) -> bool:
+        """
+        Списание консультации
+
+        Args:
+            user_id: идентификатор пользователя
+
+        Returns:
+            True при успехе, False при ошибке
+        """
+        if not self.stub:
+            await self.connect()
+
+        try:
+            request = user_pb2.WriteOffConsultationRequest(user_id=user_id)
+            await self.stub.WriteOffConsultation(request)
+            return True
+        except grpc.RpcError as e:
+            logger.error(f"GRPC ошибка: {e}")
+            return False
+        except Exception as e:
+            logger.error(f"Ошибка при обращении к GRPC серверу: {str(e)}")
+            return False
+
     async def close(self):
         """
         Закрытие соединения с GRPC сервером

@@ -39,12 +39,23 @@ class UserServiceStub(object):
                 request_serializer=protos_dot_user__service_dot_user__service__pb2.GetUserInfoRequest.SerializeToString,
                 response_deserializer=protos_dot_user__service_dot_user__service__pb2.UserInfoResponse.FromString,
                 _registered_method=True)
+        self.WriteOffConsultation = channel.unary_unary(
+                '/user.UserService/WriteOffConsultation',
+                request_serializer=protos_dot_user__service_dot_user__service__pb2.WriteOffConsultationRequest.SerializeToString,
+                response_deserializer=protos_dot_user__service_dot_user__service__pb2.WriteOffResponse.FromString,
+                _registered_method=True)
 
 
 class UserServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetUserInfo(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def WriteOffConsultation(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -57,6 +68,11 @@ def add_UserServiceServicer_to_server(servicer, server):
                     servicer.GetUserInfo,
                     request_deserializer=protos_dot_user__service_dot_user__service__pb2.GetUserInfoRequest.FromString,
                     response_serializer=protos_dot_user__service_dot_user__service__pb2.UserInfoResponse.SerializeToString,
+            ),
+            'WriteOffConsultation': grpc.unary_unary_rpc_method_handler(
+                    servicer.WriteOffConsultation,
+                    request_deserializer=protos_dot_user__service_dot_user__service__pb2.WriteOffConsultationRequest.FromString,
+                    response_serializer=protos_dot_user__service_dot_user__service__pb2.WriteOffResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -86,6 +102,33 @@ class UserService(object):
             '/user.UserService/GetUserInfo',
             protos_dot_user__service_dot_user__service__pb2.GetUserInfoRequest.SerializeToString,
             protos_dot_user__service_dot_user__service__pb2.UserInfoResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def WriteOffConsultation(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/user.UserService/WriteOffConsultation',
+            protos_dot_user__service_dot_user__service__pb2.WriteOffConsultationRequest.SerializeToString,
+            protos_dot_user__service_dot_user__service__pb2.WriteOffResponse.FromString,
             options,
             channel_credentials,
             insecure,

@@ -28,6 +28,36 @@ class GetUserInfoRequest(google.protobuf.message.Message):
 global___GetUserInfoRequest = GetUserInfoRequest
 
 @typing.final
+class WriteOffConsultationRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    USER_ID_FIELD_NUMBER: builtins.int
+    user_id: builtins.int
+    def __init__(
+        self,
+        *,
+        user_id: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["user_id", b"user_id"]) -> None: ...
+
+global___WriteOffConsultationRequest = WriteOffConsultationRequest
+
+@typing.final
+class WriteOffResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    SUCCESS_FIELD_NUMBER: builtins.int
+    success: builtins.bool
+    def __init__(
+        self,
+        *,
+        success: builtins.bool = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["success", b"success"]) -> None: ...
+
+global___WriteOffResponse = WriteOffResponse
+
+@typing.final
 class Tariff(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
